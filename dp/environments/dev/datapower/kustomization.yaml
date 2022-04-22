@@ -1,8 +1,6 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
 resources:
-  - configmap/default-cfg.yaml
-  - configmap/default-local.yaml
-  - datapower/migration-example.yaml
-  - route/dp-route.yaml
-  - service/dp-service.yaml
+- configmap/default-cfg.yaml
+- configmap/default-local.yaml
+- datapower/migration-example.yaml
+- route/dp-route.yaml
+- service/dp-service.yaml
