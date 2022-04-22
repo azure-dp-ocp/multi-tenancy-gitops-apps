@@ -1,0 +1,12 @@
+resources:
+ - configmap/default-cfg.yaml
+ - configmap/default-local.yaml
+ - datapower/migration-example.yaml
+ - route/dp-route.yaml
+ - service/dp-service.yaml
+ # - configmap-security/configmap.yaml
+ # - mq-infra/hooks/post-sync-job.yaml
+ # - certificates/dev-mq-client-certificate.yaml
+ # - certificates/dev-mq-server-certificate.yaml
+ # - secrets/mq-client-jks-password-secret.yaml
+
