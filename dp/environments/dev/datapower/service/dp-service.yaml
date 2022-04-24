@@ -1,27 +1,29 @@
-apiVersion: datapower.ibm.com/v1beta3
-kind: DataPowerService
+kind: Service
+apiVersion: v1
 metadata:
-  name: Charles-Ray
+  name: migration-example-0
+  namespace: tools
   annotations:
     argocd.argoproj.io/sync-wave: "360"
 spec:
-  replicas: 1
-  version: 10.0-cd
-  license:
-    accept: true
-    use: nonproduction
-    license: L-RJON-CCCP46
-  users:
-  - name: admin
-    accessLevel: privileged
-    passwordSecret: admin-credentials
-  domains:
-    - name: example
-      certs:
-      - certType: usrcerts
-        secret: datapower-gitops-secret
-      dpApp:
-        config:
-        - default-cfg
-        local:
-        - default-local
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 8001
+  selector:
+    app.kubernetes.io/component: datapower
+    app.kubernetes.io/instance: tools-migration-example
+    app.kubernetes.io/managed-by: datapower-operator
+    app.kubernetes.io/name: datapower
+    app.kubernetes.io/part-of: ibm-datapower-migration-example
+    app.kubernetes.io/version: 10.0.4.0sr1
+    controller-revision-hash: migration-example-5f65cb4458
+    statefulset.kubernetes.io/pod-name: migration-example-0
+#   clusterIP: 172.30.133.147
+#   clusterIPs:
+#     - 172.30.133.147
+#   type: ClusterIP
+#   sessionAffinity: None
+#   ipFamilies:
+#     - IPv4
+#   ipFamilyPolicy: SingleStack
