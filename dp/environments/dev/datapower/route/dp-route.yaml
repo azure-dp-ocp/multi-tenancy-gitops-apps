@@ -1,28 +1,15 @@
----
-apiVersion: datapower.ibm.com/v1beta3
-kind: DataPowerService
+kind: Route
+apiVersion: route.openshift.io/v1
 metadata:
-  name: Charles-Ray
+  name: migration-example-0
+  namespace: tools
   annotations:
     argocd.argoproj.io/sync-wave: "370"
 spec:
-  replicas: 1
-  version: 10.0-cd
-  license:
-    accept: true
-    use: nonproduction
-    license: L-RJON-CCCP46
-  users:
-  - name: admin
-    accessLevel: privileged
-    passwordSecret: admin-credentials
-  domains:
-    - name: example
-      certs:
-      - certType: usrcerts
-        secret: datapower-gitops-secret
-      dpApp:
-        config:
-        - default-cfg
-        local:
-        - default-local
+  to:
+    kind: Service
+    name: migration-example-0
+    weight: 100
+  port:
+    targetPort: 8001
+  wildcardPolicy: None
