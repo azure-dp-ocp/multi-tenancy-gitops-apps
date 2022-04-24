@@ -1,4 +1,3 @@
----
 apiVersion: datapower.ibm.com/v1beta3
 kind: DataPowerService
 metadata:
