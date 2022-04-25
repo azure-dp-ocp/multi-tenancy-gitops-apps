@@ -1,0 +1,76 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: migration-example-0
+  namespace: tools
+  uid: af7cc7d8-c0e3-4a0c-b0fc-6a7931f04c3b
+  resourceVersion: '21762543'
+  creationTimestamp: '2022-04-25T11:52:16Z'
+  labels:
+    app.kubernetes.io/component: datapower
+    app.kubernetes.io/instance: tools-migration-example
+    app.kubernetes.io/managed-by: datapower-operator
+    app.kubernetes.io/name: datapower
+    app.kubernetes.io/part-of: ibm-datapower-migration-example
+    app.kubernetes.io/version: 10.0.4.0sr1
+    controller-revision-hash: migration-example-5c5f797fdd
+    statefulset.kubernetes.io/pod-name: migration-example-0
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: kubectl-expose
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2022-04-25T11:52:16Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:statefulset.kubernetes.io/pod-name': {}
+            'f:controller-revision-hash': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.kubernetes.io/version': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/component': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2022-04-25T11:52:16Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+spec:
+  host: >-
+    migration-example-0-tools.apps.itzocp-662001rtxj-ngvs.selfservice.azure.techzone.ibm.com
+  to:
+    kind: Service
+    name: migration-example-0
+    weight: 100
+  port:
+    targetPort: 8001
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        migration-example-0-tools.apps.itzocp-662001rtxj-ngvs.selfservice.azure.techzone.ibm.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2022-04-25T11:52:16Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: >-
+        router-default.apps.itzocp-662001rtxj-ngvs.selfservice.azure.techzone.ibm.com
