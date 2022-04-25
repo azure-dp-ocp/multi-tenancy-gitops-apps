@@ -118,7 +118,7 @@ spec:
         COLL="mq_prometheus"
 
         # Set some variables.
-        ORG="github.com/cloud-native-toolkit-demos"
+        ORG="github.com/cloud-native-toolkit"
         REPO="mq-metric-samples"
         VRMF=9.2.4.0
         db=`echo $COLL | sed "s/mq_//g"`
