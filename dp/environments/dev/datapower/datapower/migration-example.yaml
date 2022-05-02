@@ -49,6 +49,6 @@ spec:
         secret: datapower-cert
       dpApp:
         config:
-        - default-cfg
+        - default-cfg-valid
         local:
-        - default-local
+        - default-local-valid

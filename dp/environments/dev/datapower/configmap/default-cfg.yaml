@@ -2719,6 +2719,6 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: default-cfg
+  name: default-cfg-valid
   annotations:
     argocd.argoproj.io/sync-wave: "310"
